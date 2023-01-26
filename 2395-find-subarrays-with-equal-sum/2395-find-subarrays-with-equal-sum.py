@@ -1,5 +1,6 @@
 class Solution:
     def findSubarrays(self, nums: List[int]) -> bool:
+        #2
         present = set()
         for i in range(len(nums) - 1):
             temp = nums[i] + nums[i+1]
