@@ -1,5 +1,6 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        '''
         cnt_zero = nums.count(0)
         if cnt_zero >= 2:
             return [0 for num in nums]
@@ -9,4 +10,17 @@ class Solution:
         else:
             mult = reduce((lambda x,y: x*y), [num for num in nums])
             return [mult//num for num in nums]
+        '''
+        n = len(nums)
+        res = [1]
+        prefix = 1
+        suffix = 1
+        for num in nums[:-1]:
+            prefix *= num
+            res.append(prefix)
+        
+        for i,num in enumerate(nums[::-1][:-1]):
+            suffix *= num
+            res[n-i-2]*= suffix
+        return res
         
