@@ -6,11 +6,11 @@ class Solution:
             if num - 1 in nums_set:
                 continue
             else:
-                curr = num
+                
                 length = 1
-                while curr + 1 in nums_set:
+                while num + length in nums_set:
                     length += 1
-                    curr += 1
+
                 res = max(res, length)
             
         return res
