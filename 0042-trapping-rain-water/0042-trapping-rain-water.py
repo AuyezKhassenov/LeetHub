@@ -8,10 +8,10 @@ class Solution:
             maxRight = max(maxRight, height[r])
             
             if maxLeft <= maxRight:
-                res += max(0, maxLeft - height[l])
+                res += maxLeft - height[l]
                 l += 1
             else: 
-                res += max(0, maxRight - height[r])
+                res += maxRight - height[r]
                 r -= 1
         return res
             
