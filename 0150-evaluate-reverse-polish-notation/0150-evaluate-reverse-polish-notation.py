@@ -15,9 +15,7 @@ class Solution:
                 elif token == '*':
                     c = b * a
                 elif token == '/':
-                    c = abs(b) // abs(a)
-                    if a*b < 0:
-                        c = -c
+                    c = int(b / a)
                 stack.append(c)
         return stack[0]
                 
