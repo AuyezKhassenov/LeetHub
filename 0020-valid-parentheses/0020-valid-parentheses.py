@@ -1,16 +1,15 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        if len(s) % 2 != 0:
-            return False
-        dict = {'(' : ')', '[' : ']', '{' : '}'}
+        brackets = {'(':')', '[':']', '{':'}'}
         stack = []
-        for i in s:
-            if i in dict.keys():
-                stack.append(i)
+        for bracket in s:
+            if bracket in brackets:
+                stack.append(bracket)
             else:
                 if stack == []:
                     return False
-                a = stack.pop()
-                if i!= dict[a]:
-                    return False
+                else:
+                    a = stack.pop()
+                    if bracket != brackets[a]:
+                        return False
         return stack == []
