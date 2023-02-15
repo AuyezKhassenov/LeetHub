@@ -3,10 +3,10 @@ class Solution:
         res = [0] * len(T)
         stack = []
         for i, t in enumerate(T):
-            while stack and stack[-1][0] < t:
-                temp, ind = stack.pop()
+            while stack and T[stack[-1]] < t:
+                ind = stack.pop()
                 res[ind] = i - ind
-            stack.append([t,i])
+            stack.append(i)
         return res
             
         
