@@ -1,4 +1,4 @@
 class Solution:
     def distinctIntegers(self, n: int) -> int:
-        return n-1 if n != 1 else 1
+        return max(1, n-1)
         
