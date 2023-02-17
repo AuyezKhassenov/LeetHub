@@ -6,7 +6,6 @@ class Solution:
             if num - 1 in nums_set:
                 continue
             else:
-                
                 length = 1
                 while num + length in nums_set:
                     length += 1
