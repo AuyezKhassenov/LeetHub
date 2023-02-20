@@ -21,12 +21,4 @@ class Solution:
                 else:
                     l = m + 1
                 
-            '''
-              
-            if nums[l] <= target < nums[m]:
-                r = m - 1
-            else:
-                l = m + 1
-            
-            '''
         return -1
