@@ -10,13 +10,13 @@ class Solution:
             
             
             if target > nums[m]:
-                if target <= nums[r] or target > nums[m] > nums[l]:
+                if target <= nums[r] or nums[m] > nums[l]:
                     l = m + 1
                 else:
                     r = m - 1
                     
             elif target < nums[m]:
-                if target >= nums[l] or target < nums[m] < nums[r]:
+                if target >= nums[l] or nums[m] < nums[r]:
                     r = m - 1
                 else:
                     l = m + 1
