@@ -7,10 +7,9 @@ class Solution:
         for r in range(len(s)):
             cnt[s[r]] += 1
             max_f = max(cnt[s[r]], max_f)
-            if r - l + 1 - max_f <= k:
-                res = max(res, r - l + 1)
-            else:
+            while (r - l + 1) - max_f > k:
                 cnt[s[l]] -= 1
                 l += 1
+            res = max(res, r - l + 1)
         return res
         
