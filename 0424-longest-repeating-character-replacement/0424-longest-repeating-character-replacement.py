@@ -3,10 +3,10 @@ class Solution:
         cnt = Counter()
         l = 0
         res = 0
-        
+        max_f = 0
         for r in range(len(s)):
             cnt[s[r]] += 1
-            max_f = max(cnt.values())
+            max_f = max(cnt[s[r]], max_f)
             if r - l + 1 - max_f <= k:
                 res = max(res, r - l + 1)
             else:
