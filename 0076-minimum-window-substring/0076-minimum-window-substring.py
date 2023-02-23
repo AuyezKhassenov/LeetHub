@@ -1,7 +1,6 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        #s = "babb"
-        #t = "baba"
+
         if len(s) < len(t):
             return ''
         cnt_t = Counter(t)
@@ -23,7 +22,7 @@ class Solution:
                 cnt_t[s[r]] -= 1
                 
             if match == len(cnt_t):
-                #print(s[l:r+1])
+                
                 while cnt_t[s[l]] < 0 or s[l] not in cnt_t:
                     if s[l] in cnt_t:
                         cnt_t[s[l]] += 1
@@ -33,13 +32,4 @@ class Solution:
                     res = s[l:r+1]
                     min_res = r - l + 1
                     
-                #if cnt_t[s[l]] == 0: match -= 1
-                #cnt_t[s[l]] += 1
-                '''
-                for i in range(l+1, r+1):
-                    l = i
-                    if s[l] in cnt_t:
-                        #cnt_t[s[l]] = 1
-                        break
-                '''
         return res
