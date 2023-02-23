@@ -1,13 +1,11 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-
         if len(s) < len(t):
             return ''
         cnt_t = Counter(t)
         min_res = len(s)
         res = ''
 
-     
         for i, char in enumerate(s):
             if i == len(s)-1 and char not in cnt_t:
                 return ''
