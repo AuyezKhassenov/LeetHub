@@ -5,14 +5,15 @@ class Solution:
         cnt_t = Counter(t)
         min_res = len(s)
         res = ''
-
+        l = 0
+        '''
         for i, char in enumerate(s):
             if i == len(s)-1 and char not in cnt_t:
                 return ''
             if char in cnt_t:
                 l = i
                 break
-        
+        '''
         match = 0      
         for r in range(l, len(s)):
             if s[r] in cnt_t:
