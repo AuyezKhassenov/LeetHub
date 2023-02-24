@@ -13,6 +13,7 @@ class Solution:
                 q.pop()
             
             q.append(r)
+            
             if l > q[0]:
                 q.popleft()
             
