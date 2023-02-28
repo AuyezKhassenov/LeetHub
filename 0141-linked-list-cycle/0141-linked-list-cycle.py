@@ -6,6 +6,7 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
+        '''
         i = 0
         cur = head
         while cur:
@@ -13,4 +14,14 @@ class Solution:
             i += 1
             if i > 10001:
                 return True
-        
+        '''
+        try:
+            slow = head
+            fast = head.next
+            while slow is not fast:
+                slow = slow.next
+                fast = fast.next.next
+            return True
+        except:
+            return False
+            
