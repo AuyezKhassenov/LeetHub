@@ -6,70 +6,32 @@
 
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-
-
-        #print(head)
-        """
-        Do not return anything, modify head in-place instead.
-        """
         slow, fast = head, head.next
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-            
-        def reverseList(head: Optional[ListNode]) -> ListNode():
-            prev, cur = None, head
-            
-            while cur:
-                nxt = cur.next
-                cur.next = prev
-                prev = cur
-                cur = nxt
-            
-            return prev
         
-        
-            
-        second = slow.next
-        slow.next = None  
-        rev = reverseList(second)
-        
-
-        first = head
-      
-        while rev:
-            tmp1, tmp2 = first.next, rev.next
-            first.next = rev
-            rev.next = tmp1
-            first, rev = tmp1, tmp2
-'''           
-class Solution:
-    def reorderList(self, head: ListNode) -> None:
-        # find middle
-        slow, fast = head, head.next
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-
-        # reverse second half
+        
         second = slow.next
-        prev = slow.next = None
+        slow.next = None
+        
+        prev = None
         while second:
-            tmp = second.next
+            nxt = second.next
             second.next = prev
             prev = second
-            second = tmp
-
-        # merge two halfs
+            second = nxt
+        
         first, second = head, prev
-        print(second)
-        print(first)
+        
         while second:
             tmp1, tmp2 = first.next, second.next
             first.next = second
             second.next = tmp1
             first, second = tmp1, tmp2
-'''       
+        
+        
+        
 
             
             
