@@ -3,7 +3,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-'''
+
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
 
@@ -12,6 +12,11 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
+        slow, fast = head, head.next
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            
         def reverseList(head: Optional[ListNode]) -> ListNode():
             prev, cur = None, head
             
@@ -23,23 +28,20 @@ class Solution:
             
             return prev
         
-        slow, fast = head, head.next
         
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
             
         second = slow.next
-          
+        slow.next = None  
         rev = reverseList(second)
         
-        first, second_2 = head, rev
-        
-        while second_2:
-            tmp1, tmp2 = first.next, second_2.next
-            first.next = second_2
-            second_2 = tmp1
-            first, second_2 = tmp1, tmp2
+
+        first = head
+      
+        while rev:
+            tmp1, tmp2 = first.next, rev.next
+            first.next = rev
+            rev.next = tmp1
+            first, rev = tmp1, tmp2
 '''           
 class Solution:
     def reorderList(self, head: ListNode) -> None:
@@ -60,12 +62,14 @@ class Solution:
 
         # merge two halfs
         first, second = head, prev
+        print(second)
+        print(first)
         while second:
             tmp1, tmp2 = first.next, second.next
             first.next = second
             second.next = tmp1
             first, second = tmp1, tmp2
-            
+'''       
 
             
             
