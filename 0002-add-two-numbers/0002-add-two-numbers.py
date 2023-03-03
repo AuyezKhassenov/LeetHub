@@ -25,7 +25,7 @@ class Solution:
             l2 = l2.next
         
         l3 = l1 or l2
-        print(l3)
+        
         while l3:
             res = l3.val + rem
             if res >= 10:
