@@ -9,38 +9,22 @@ class Solution:
         
         dummy = start = ListNode()
         
-        while l1 and l2:
-            res = l1.val + l2.val + rem
-            if res >= 10:
-                res = res - 10
-                start.next = ListNode(res)
-                rem = 1
-                
-            else:
-                start.next = ListNode(res)
-                rem = 0
+        while l1 or l2 or rem:
             
-            start = start.next
-            l1 = l1.next
-            l2 = l2.next
-        
-        l3 = l1 or l2
-        
-        while l3:
-            res = l3.val + rem
-            if res >= 10:
-                res = res - 10
-                start.next = ListNode(res)
-                rem = 1
-                
-            else:
-                start.next = ListNode(res)
-                rem = 0
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
             
-            l3 = l3.next
+            res = v1 + v2 + rem
+            rem = res // 10
+            res = res % 10
+            
+            start.next = ListNode(res)
+            
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
             start = start.next
-        if rem == 1:
-            start.next = ListNode(1)
+            
+            
             
         return dummy.next
             
