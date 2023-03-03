@@ -15,13 +15,15 @@ class Solution:
             if i > 10001:
                 return True
         '''
+        
+        
         try:
-            slow = head
-            fast = head.next
-            while slow is not fast:
-                slow = slow.next
+            slow, fast = head, head.next
+            while True:
                 fast = fast.next.next
-            return True
+                slow = slow.next
+                if slow == fast:
+                    return True
         except:
             return False
             
