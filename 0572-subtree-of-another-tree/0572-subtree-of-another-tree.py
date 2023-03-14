@@ -15,17 +15,10 @@ class Solution:
             
             return isSameTree(node1.left, node2.left) and isSameTree(node1.right, node2.right)
         
-        self.res = False
-        
-        def dfs(node1):
-            if isSameTree(node1, subRoot):
-                self.res = True
-            if node1:
-                dfs(node1.left)
-                dfs(node1.right)
-            
-        dfs(root)
-                          
-        return self.res
+        if isSameTree(root, subRoot):
+            return True
+        if not root:
+            return False
+        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
                 
         
