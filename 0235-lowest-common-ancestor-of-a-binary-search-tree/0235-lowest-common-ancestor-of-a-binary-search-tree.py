@@ -10,15 +10,11 @@ class Solution:
         
         while True:
             
-            if root.val == p.val:
-                return p
-            elif root.val == q.val:
-                return q
-            elif p.val < root.val < q.val or p.val > root.val > q.val:
-                return root
-            elif root.val > p.val and root.val > q.val:
+            if root.val > p.val and root.val > q.val:
                 root = root.left
-            else:
+            elif root.val < p.val and root.val < q.val: 
                 root = root.right
+            else:
+                return root
         
             
