@@ -12,21 +12,11 @@ class Solution:
             if not node:
                 return 0
             
-            
-            if node.left:
-                left = dfs(node.left, max(maxVal, node.left.val))
-            else:
-                left = 0
-                
-            if node.right:
-                right = dfs(node.right, max(maxVal, node.right.val))
-            else:
-                right = 0
-                
-            if node.val >= maxVal:
-                return 1 + left + right
-            else:
-                return left + right
+            res = 1 if node.val >= maxVal else 0
+            maxVal = max(maxVal, node.val)
+            res += dfs(node.left, maxVal)
+            res += dfs(node.right, maxVal)
+            return res
             
         
         return dfs(root, root.val)
