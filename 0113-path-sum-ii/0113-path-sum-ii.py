@@ -8,7 +8,7 @@ class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         res = []
         
-        def dfs(root, targetSum, tmp, res):
+        def dfs(root, targetSum, tmp):
             if not root:
                 return None
             
@@ -17,10 +17,10 @@ class Solution:
                 res.append(tmp)
                 
               
-            dfs(root.left, targetSum - root.val, tmp + [root.val], res)
-            dfs(root.right, targetSum - root.val, tmp + [root.val] , res)
+            dfs(root.left, targetSum - root.val, tmp + [root.val])
+            dfs(root.right, targetSum - root.val, tmp + [root.val])
             
-        dfs(root, targetSum, [], res)
+        dfs(root, targetSum, [])
         return res
             
             
