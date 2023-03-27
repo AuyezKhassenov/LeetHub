@@ -18,8 +18,8 @@ class Solution:
                 return False
             
             if left.val == right.val:
-                q.append([left.left, right.right])
-                q.append([left.right, right.left])
+                q.appendleft([left.left, right.right])
+                q.appendleft([left.right, right.left])
             else:
                 return False
         
