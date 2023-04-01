@@ -3,21 +3,20 @@ class Solution:
         res = []
         
         
-        def dfs(i, combination):
-            if i >= len(candidates):
-                return
+        def dfs(i, combination, total):
+
             if sum(combination) == target:
                 res.append(combination.copy())
                 return
-            elif sum(combination) > target:
+            elif total > target or i >= len(candidates):
                 return
             
             combination.append(candidates[i])
-            dfs(i, combination)
+            dfs(i, combination, total + candidates[i])
             
             combination.pop()
-            dfs(i+1, combination)
+            dfs(i+1, combination, total)
         
-        dfs(0, [])
+        dfs(0, [], 0)
         
         return res
