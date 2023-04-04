@@ -7,16 +7,13 @@ class Solution:
             if total == target:
                 res.append(subset.copy())
                 return
-            elif total > target or i == len(candidates):
+            elif total > target:
                 return
             
-            subset.append(candidates[i])
-            bt(i+1, subset, total + candidates[i])
-            
-            subset.pop()
-            while i + 1 < len(candidates) and candidates[i] == candidates[i+1]:
-                i += 1
-            bt(i+1, subset, total)
+            for j in range(i, len(candidates)):
+                if j > i and candidates[j] == candidates[j-1]:
+                    continue
+                bt(j+1, subset + [candidates[j]], total + candidates[j])
         
         bt(0, [], 0)
         return res
