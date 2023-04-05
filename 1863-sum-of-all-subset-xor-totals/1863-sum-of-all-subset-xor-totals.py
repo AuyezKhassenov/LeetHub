@@ -7,10 +7,8 @@ class Solution:
                 self.res += self.xor(path[::])
                 return
             
-            path.append(nums[i])
-            bt(i+1, path)
-            
-            path.pop()
+           
+            bt(i+1, path + [nums[i]])
             bt(i+1, path)
             
         bt(0, [])
