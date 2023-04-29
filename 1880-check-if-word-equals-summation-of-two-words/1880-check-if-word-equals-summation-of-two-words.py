@@ -1,5 +1,7 @@
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
-        table = str.maketrans('abcdefghij', '0123456789')
-        return int(firstWord.translate(table)) + int(secondWord.translate(table)) == int(targetWord.translate(table))
+        return self.convert(firstWord) + self.convert(secondWord) == self.convert(targetWord)
+        
+    def convert(self, s: str) -> int:
+        return int("".join([str((ord(char) - ord('a'))) for char in s]))
         
