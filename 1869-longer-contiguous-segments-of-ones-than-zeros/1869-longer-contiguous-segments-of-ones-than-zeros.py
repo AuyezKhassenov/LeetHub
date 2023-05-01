@@ -1,17 +1,17 @@
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
-        ones = zeroes = 0
-        tmp_ones = tmp_zeroes = 0
-        for num in s:
-            if num == '0':
-                tmp_zeroes += 1
-                ones = max(ones, tmp_ones)
-                tmp_ones = 0
-            else:
-                tmp_ones += 1
-                zeroes = max(zeroes, tmp_zeroes)
-                tmp_zeroes = 0
-        ones, zeroes = max(ones, tmp_ones), max(zeroes, tmp_zeroes)
-        return ones > zeroes
+        best_one, best_zero, current_one, current_zero = 0, 0, 0, 0
         
+        for i in s:
+            if i == "1":
+                current_zero = 0
+                current_one += 1
+            else:
+                current_zero += 1
+                current_one = 0
+                
+            best_one = max(best_one, current_one)
+            best_zero = max(best_zero, current_zero)
+        
+        return best_one > best_zero
         
