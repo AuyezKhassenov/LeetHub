@@ -6,5 +6,5 @@ class Solution:
             numBottles = empty//numExchange
             empty = empty - numBottles*(numExchange-1)
             res += numBottles
-        print(empty)
+        
         return res
