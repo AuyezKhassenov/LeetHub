@@ -1,8 +1,6 @@
-import math
 class Solution:
     def constructRectangle(self, area: int) -> List[int]:
-        L = math.floor(sqrt(area))
-        for w in range(L, area+1):
-            if not area%w:
-                return [max(w, area//w), min(w, area//w)]
+        for l in range(int(area**0.5), 0, -1):            
+            if area % l == 0: 
+                return [area // l, l]
         
