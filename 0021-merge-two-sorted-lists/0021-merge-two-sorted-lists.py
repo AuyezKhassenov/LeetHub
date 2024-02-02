@@ -3,18 +3,17 @@ class Solution:
         dummy = res = ListNode()
         
         while list1 and list2:
-            if list1.val < list2.val:
-                dummy.next = list1
-                list1 = list1.next
-            else:
-                dummy.next = list2
+            if list1.val > list2.val:
+                res.next = list2
                 list2 = list2.next
-            
-            dummy = dummy.next
-            
-        dummy.next = list1 or list2
+            else:
+                res.next = list1
+                list1 = list1.next
+            res = res.next
+        if list1:
+            res.next = list1
+        if list2:
+            res.next = list2
         
-        return res.next
-            
-        
+        return dummy.next
      
