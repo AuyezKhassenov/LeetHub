@@ -16,7 +16,7 @@ class Solution:
             p.next = tail.next
             tail.next = tail.next.next
             p.next.next = tmp
-        
+            
         return dummy.next
             
                 
