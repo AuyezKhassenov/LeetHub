@@ -15,9 +15,7 @@ class Solution:
             summ = summ % 10
             dummy.next = ListNode(summ)
             dummy = dummy.next
-            if l1:
-                l1 = l1.next
-            if l2:
-                l2 = l2.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
             
         return res.next
