@@ -8,8 +8,15 @@ class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         if not root:
             return False
-        if not root.left and not root.right and root.val == targetSum:
+        if not root.left and not root.right and targetSum == root.val:
             return True
         
-        return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)
+        left = right = False
         
+        if root.left:
+            left = self.hasPathSum(root.left, targetSum - root.val)
+            
+        if root.right:
+            right = self.hasPathSum(root.right, targetSum - root.val)
+        
+        return left or right
