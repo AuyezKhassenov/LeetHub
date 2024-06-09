@@ -16,7 +16,7 @@ class Solution:
             left_tree_size = idx - inorder_start
             root = TreeNode(val)
             root.left = helper(inorder_start, idx-1,
-                               preorder_start+1, preorder_start + left_tree_size)
+                               preorder_start + 1, preorder_start + left_tree_size)
             root.right = helper(idx+1, inorder_end,
                                preorder_start + 1 + left_tree_size, preorder_end)
             
