@@ -3,16 +3,15 @@ class Solution:
         l = max(weights)
         r = sum(weights)
         
-        while l <= r:
+        while l < r:
             m = (l + r) // 2
             cnt_days = self.count_ships(m, weights) 
             if cnt_days > days:
                 l = m + 1
             elif cnt_days <= days:
-                ans = m
-                r = m - 1
+                r = m
                 
-        return ans
+        return r
             
             
     def count_ships(self, capacity, weights):
