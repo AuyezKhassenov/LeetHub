@@ -17,20 +17,11 @@ class Solution:
     def count_ships(self, capacity, weights, days):
         cnt_ship = 0
         tmp_w = 0
-        n = len(weights)
-        i = 0
-        while i != n:
-            tmp = tmp_w + weights[i]
-            if tmp < capacity:
-                tmp_w += weights[i]
-                i += 1
-            elif tmp == capacity:
+        for w in weights:
+            tmp_w += w
+            if tmp_w > capacity:
+                tmp_w = w
                 cnt_ship += 1
-                i += 1
-                tmp_w = 0
-            else:
-                cnt_ship += 1
-                tmp_w = 0
             if cnt_ship > days:
                 break
         return cnt_ship + (tmp_w != 0) 
