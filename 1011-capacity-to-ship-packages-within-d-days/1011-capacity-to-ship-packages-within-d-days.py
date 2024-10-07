@@ -4,7 +4,7 @@ class Solution:
         r = sum(weights)
         
         while l < r:
-            m = (l + r) // 2
+            m = l + (r - l) // 2
             cnt_days = self.count_ships(m, weights) 
             if cnt_days > days:
                 l = m + 1
