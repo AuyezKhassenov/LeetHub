@@ -5,7 +5,7 @@ class Solution:
         
         while l < r:
             m = l + (r - l) // 2
-            cnt_days = self.count_ships(m, weights) 
+            cnt_days = self.count_ships(m, weights, days) 
             if cnt_days > days:
                 l = m + 1
             elif cnt_days <= days:
@@ -14,7 +14,7 @@ class Solution:
         return r
             
             
-    def count_ships(self, capacity, weights):
+    def count_ships(self, capacity, weights, days):
         cnt_ship = 0
         tmp_w = 0
         n = len(weights)
@@ -31,6 +31,8 @@ class Solution:
             else:
                 cnt_ship += 1
                 tmp_w = 0
+            if cnt_ship > days:
+                break
         return cnt_ship + (tmp_w != 0) 
             
         
