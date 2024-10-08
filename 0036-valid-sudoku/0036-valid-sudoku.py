@@ -1,26 +1,28 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        sudoku = defaultdict(set)
-        
+        boxes = defaultdict(set)
         for i in range(9):
+            box_x = i // 3
             for j in range(9):
-                cur = board[i][j]
-                if cur != '.':
-                    if cur in sudoku[(i//3,j//3)]:
-                        return False
-                    sudoku[(i//3,j//3)].add(cur)
+                box_y = j // 3
+                val = board[i][j]
+                if val == '.':
+                    continue
+                if val in boxes[f"{box_x},{box_y}"]:
+                    return False
+                boxes[f"{box_x},{box_y}"].add(val)
         
         for row in board:
-            tmp = [elem for elem in row if elem != '.']
-            if len(tmp) != len(set(tmp)):
+            row = [val for val in row if val != '.']
+
+            if len(row) != len(set(row)):
                 return False
         
-        board_T = list(zip(*board))
-    
-        for row in board_T:
-            tmp = [elem for elem in row if elem != '.']
-            if len(tmp) != len(set(tmp)):
+        transpose = list(zip(*board))
+        for row in transpose:
+            row = [val for val in row if val != '.']
+
+            if len(row) != len(set(row)):
                 return False
-                
-                
+            
         return True
