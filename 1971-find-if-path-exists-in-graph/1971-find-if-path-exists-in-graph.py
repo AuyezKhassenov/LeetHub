@@ -15,6 +15,6 @@ class Solution:
             for n in paths[node]:
                 if dfs(n, end, seen):
                     return True
-            
+            return False
         seen = set()
         return dfs(source, destination, seen)
