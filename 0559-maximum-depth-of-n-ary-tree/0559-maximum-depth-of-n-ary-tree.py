@@ -8,11 +8,10 @@ class Node:
 
 class Solution:
     def maxDepth(self, root: 'Node') -> int:
-        def dfs(node):
-            if not node:
-                return 0
-            if not node.children:
-                return 1
-            
-            return 1 + max(dfs(n) for n in node.children)
-        return dfs(root)
+        if not root:
+            return 0
+        if not root.children:
+            return 1
+
+        return 1 + max(self.maxDepth(n) for n in root.children)
+ 
