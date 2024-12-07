@@ -9,7 +9,7 @@ class Solution:
                 ans.append([1,1])
             else:
                 res = [1]
-                for j in range(len(ans[-1])-1):
+                for j in range(i-1):
                     res.append(ans[-1][j] + ans[-1][j+1])
                 res.append(1)
                 ans.append(res)
