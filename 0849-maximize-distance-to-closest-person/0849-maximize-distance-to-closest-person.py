@@ -2,7 +2,7 @@ class Solution:
     def maxDistToClosest(self, seats: List[int]) -> int:
         left2right = [0 for _ in range(len(seats))]
         right2left = [0 for _ in range(len(seats))]
-        prev = 3e4
+        prev = -3e4
         for i in range(len(seats)):
             if seats[i] == 1:
                 left2right[i] = i
@@ -22,7 +22,7 @@ class Solution:
         ans = 0
         for i, seat in enumerate(seats):
             if seat == 0:
-                ans = max(ans, min(abs(i-left2right[i]), right2left[i]-i))
+                ans = max(ans, min(i-left2right[i], right2left[i]-i))
         return ans
                 
         
