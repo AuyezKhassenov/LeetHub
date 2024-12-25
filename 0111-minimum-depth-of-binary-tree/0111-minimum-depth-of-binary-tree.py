@@ -10,13 +10,9 @@ class Solution:
             return 0
         if not root.left and not root.right:
             return 1
-        elif not root.right:
-            right = float('inf')
-            left = self.minDepth(root.left)
-        elif not root.left:
-            left = float('inf')
-            right = self.minDepth(root.right)
-        else:
-            right = self.minDepth(root.right)
-            left = self.minDepth(root.left)
+    
+        right = float('inf') if not root.right else self.minDepth(root.right)
+        left = float('inf') if not root.left else self.minDepth(root.left)
+    
+        
         return 1 + min(right, left)
